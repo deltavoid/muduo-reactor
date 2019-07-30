@@ -1,3 +1,6 @@
+/*
+ * EventLoop Poller Channel
+ */
 #include "reactor/Channel.h"
 #include "reactor/EventLoop.h"
 

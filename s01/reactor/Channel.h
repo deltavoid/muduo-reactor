@@ -71,9 +71,11 @@ private:
     static const int kWriteEvent;
 
     EventLoop *loop_;
+    
     const int fd_;
     int events_;
     int revents_;
+    
     int index_; // used by Poller.
 
     EventCallback readCallback_;

@@ -15,31 +15,29 @@ namespace muduo
 
 class EventLoop : boost::noncopyable
 {
- public:
+public:
+    EventLoop();
+    ~EventLoop();
 
-  EventLoop();
-  ~EventLoop();
+    void loop();
 
-  void loop();
-
-  void assertInLoopThread()
-  {
-    if (!isInLoopThread())
+    void assertInLoopThread()
     {
-      abortNotInLoopThread();
+        if (!isInLoopThread())
+        {
+            abortNotInLoopThread();
+        }
     }
-  }
 
-  bool isInLoopThread() const { return threadId_ == CurrentThread::tid(); }
+    bool isInLoopThread() const { return threadId_ == CurrentThread::tid(); }
 
- private:
+private:
+    void abortNotInLoopThread();
 
-  void abortNotInLoopThread();
-
-  bool looping_; /* atomic */
-  const pid_t threadId_;
+    bool looping_; /* atomic */
+    const pid_t threadId_;
 };
 
-}
+} // namespace muduo
 
-#endif  // MUDUO_NET_EVENTLOOP_H
+#endif // MUDUO_NET_EVENTLOOP_H

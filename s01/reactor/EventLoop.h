@@ -58,6 +58,7 @@ private:
     bool looping_; /* atomic */
     bool quit_;    /* atomic */
     const pid_t threadId_;
+    
     boost::scoped_ptr<Poller> poller_;
     ChannelList activeChannels_;
 };

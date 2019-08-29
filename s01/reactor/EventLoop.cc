@@ -43,6 +43,8 @@ EventLoop::~EventLoop()
     t_loopInThisThread = NULL;
 }
 
+
+// run entry
 void EventLoop::loop()
 {
     assert(!looping_);
@@ -54,6 +56,7 @@ void EventLoop::loop()
     {
         activeChannels_.clear();
         poller_->poll(kPollTimeMs, &activeChannels_);
+        
         for (ChannelList::iterator it = activeChannels_.begin();
              it != activeChannels_.end(); ++it)
         {
@@ -71,6 +74,7 @@ void EventLoop::quit()
     // wakeup();
 }
 
+// set entry
 void EventLoop::updateChannel(Channel *channel)
 {
     assert(channel->ownerLoop() == this);

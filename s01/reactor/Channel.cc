@@ -28,6 +28,7 @@ Channel::Channel(EventLoop *loop, int fdArg)
 {
 }
 
+// set entry
 void Channel::update()
 {
     loop_->updateChannel(this);

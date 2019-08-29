@@ -51,6 +51,7 @@ private:
     typedef std::map<int, Channel *> ChannelMap;
 
     EventLoop *ownerLoop_;
+    
     PollFdList pollfds_;
     ChannelMap channels_;
 };

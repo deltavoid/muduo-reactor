@@ -4,3 +4,5 @@ blade-bin
 build64_release
 build.ninja
 .Building.lock
+
+.vscode

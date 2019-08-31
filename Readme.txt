@@ -1,5 +1,5 @@
 
 
-learning from https://github.com/chenshuo/recipes
+learned from https://github.com/chenshuo/recipes
 
 

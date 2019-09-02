@@ -24,7 +24,7 @@ class Channel;
 class Poller;
 class TimerQueue;
 
-class EventLoop : boost::nrepeatoncopyable
+class EventLoop : boost::noncopyable
 {
 public:
     typedef boost::function<void()> Functor;

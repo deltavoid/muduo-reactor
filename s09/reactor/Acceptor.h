@@ -25,28 +25,32 @@ class InetAddress;
 ///
 class Acceptor : boost::noncopyable
 {
- public:
-  typedef boost::function<void (int sockfd,
-                                const InetAddress&)> NewConnectionCallback;
+public:
+    typedef boost::function<void(int sockfd, const InetAddress &)>
+        NewConnectionCallback;
 
-  Acceptor(EventLoop* loop, const InetAddress& listenAddr);
+    Acceptor(EventLoop *loop, const InetAddress &listenAddr);
 
-  void setNewConnectionCallback(const NewConnectionCallback& cb)
-  { newConnectionCallback_ = cb; }
+    void setNewConnectionCallback(const NewConnectionCallback &cb)
+    {
+        newConnectionCallback_ = cb;
+    }
 
-  bool listenning() const { return listenning_; }
-  void listen();
+    bool listenning() const { return listenning_; }
+    void listen();
 
- private:
-  void handleRead();
+private:
+    void handleRead();
 
-  EventLoop* loop_;
-  Socket acceptSocket_;
-  Channel acceptChannel_;
-  NewConnectionCallback newConnectionCallback_;
-  bool listenning_;
+    EventLoop *loop_;
+    
+    Socket acceptSocket_;
+    Channel acceptChannel_;
+    
+    NewConnectionCallback newConnectionCallback_;
+    bool listenning_;
 };
 
-}
+} // namespace muduo
 
-#endif  // MUDUO_NET_ACCEPTOR_H
+#endif // MUDUO_NET_ACCEPTOR_H
